@@ -20,18 +20,18 @@ it( "parses a single inline logline", function ( done ) {
         .end( FIELDS_LINE + "passed\tlili\talpha" )
 })
 
-it( "parses multi-line query strings", function ( done ) {
+it( "parses multi-line logs", function ( done ) {
     var results = [];
     wdlstream()
         .on( "data", results.push.bind( results ) )
         .on( "end", function () {
             assert.deepEqual( results, [
-                { hello: "world" },
-                { foo: "bar" },
+                { test: "world" },
+                { test: "bar" },
             ]);
             done();
         })
-        .end( "hello=world\nfoo=bar" )
+        .end( FIELDS_LINE + "world\nbar" )
 })
 
 it( "disregards excessive whitespaces", function ( done ) {
