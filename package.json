@@ -4,7 +4,7 @@
   "description": "Stream parsing WDL files",
   "main": "index.js",
   "scripts": {
-    
+    "test": "node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/kfir124/wdl-stream",
   "devDependencies": {
-    
+    "mocha": "^2.3.3"
   },
   "dependencies": {
     
