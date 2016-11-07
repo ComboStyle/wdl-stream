@@ -74,7 +74,7 @@ Stream.prototype._parse = function ( data ) {
         var parts = data.split("\t"); // tab separated
         for (var i = 0; i < parts.length; i++) {
             if (parts[i] == '-') {
-                //continue; // it means empty value
+                continue; // it means empty value
             }
             result[this.headers[i]] = parts[i];
         }
