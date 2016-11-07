@@ -14,7 +14,7 @@ function wdlstream ( options ) {
 util.inherits( Stream, stream.Transform );
 function Stream( options ) {
     options || ( options = {} );
-    options.readableObjectMode = true;
+    //options.readableObjectMode = true;
 
     stream.Transform.call( this, options )
     this.buf = new Buffer( "" );
