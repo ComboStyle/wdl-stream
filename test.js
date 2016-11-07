@@ -56,20 +56,24 @@ it( "streams partial data", function ( done ) {
         .on( "data", results.push.bind( results ) )
         .on( "end", function () {
             assert.deepEqual( initial, [] );
+            assert.deepEqual( initial2, [] );
             assert.deepEqual( partial, [
-                { hello: "world", foo: "bar" }
+                { test: "hello", omega: "mastic", beta: "orange" },
             ]);
             assert.deepEqual( results, [
-                { hello: "world", foo: "bar" },
-                { cookie: "monster" }
-            ])
+                { test: "hello", omega: "mastic", beta: "orange" },
+                { test: "1", omega: "2", beta: "3" },
+            ]);
             done();
         });
-        
-    stream.write( "hello=world&foo" );
+    stream.write( FIELDS_LINE );
+    stream.write( "hello\tmasti" );
     initial = results.slice(); // copy the results at this point
 
-    stream.write( "=bar\ncookie=monster" );
+    stream.write( "c\torange" );
+    initial2 = results.slice(); // copy the results at this point
+
+    stream.write( "\n1\t2\t3" );
     partial = results.slice(); // copy the results at this point
 
     stream.end();
