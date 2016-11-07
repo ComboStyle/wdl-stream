@@ -34,18 +34,20 @@ it( "parses multi-line logs", function ( done ) {
         .end( FIELDS_LINE + "world\nbar" )
 })
 
-it( "disregards excessive whitespaces", function ( done ) {
+it( "disregards '-' elements", function ( done ) {
     var results = [];
     wdlstream()
         .on( "data", results.push.bind( results ) )
         .on( "end", function () {
             assert.deepEqual( results, [
-                { hello: "world" },
-                { foo: "bar" }
+                { 
+                    test: "world",
+                    beta: "alpha"
+                },
             ]);
             done();
         })
-        .end( "\n\n\thello=world  \n\n   foo=bar\n\n" )
+        .end( FIELDS_LINE + "world\t-\talpha" )
 })
 
 it( "streams partial data", function ( done ) {
