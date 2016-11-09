@@ -76,7 +76,7 @@ Stream.prototype._parse = function ( data ) {
             if (parts[i] == '-') {
                 continue; // it means empty value
             }
-            result[this.headers[i]] = decodeURI(parts[i]);
+            result[this.headers[i]] = decodeURIComponent(parts[i]);
         }
         return result;
     }

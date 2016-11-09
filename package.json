@@ -1,6 +1,6 @@
 {
   "name": "wdl-stream",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Stream parsing WDL files",
   "main": "index.js",
   "scripts": {
